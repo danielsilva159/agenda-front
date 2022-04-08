@@ -1,0 +1,11 @@
+.button{
+  display: flex;
+  justify-content: center;
+}
+.btn-cadastro{
+  display: flex;
+  justify-content: space-between;
+}
+.button-delete{
+  margin-left: 10px;
+}

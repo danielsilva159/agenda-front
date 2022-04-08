@@ -1,0 +1,71 @@
+<div class="container" >
+  <a class="links" id="paracadastro"></a>
+  <a class="links" id="paralogin"></a>
+
+  <div class="content">
+    <!--FORMULÁRIO DE LOGIN-->
+    <div id="login">
+      <form method="post" [formGroup]="verificarLoginForm">
+        <h1>Login</h1>
+        <p>
+          <label for="email">Seu email</label>
+          <input id="email" name="email" formControlName="email" required="required" type="text" placeholder="ex. contato@htmlecsspro.com"/>
+          <span *ngIf="verificarLoginForm.controls['email'].errors">
+            Campo obrigatório
+         </span>
+        </p>
+
+        <p>
+          <label for="senha">Sua senha</label>
+          <input id="senha" name="senha" formControlName="senha" required="required" type="password" placeholder="ex. senha" />
+        </p>
+
+        <p>
+          <input type="checkbox" name="manterlogado" id="manterlogado" value="" />
+          <label for="manterlogado">Manter-me logado</label>
+        </p>
+
+        <p>
+          <input type="submit" value="Logar" (click)="logar()" [disabled]="!verificarLoginForm.valid"  />
+        </p>
+
+        <p class="link">
+          Ainda não tem conta?
+          <a href="#paracadastro">Cadastre-se</a>
+        </p>
+      </form>
+    </div>
+
+    <!--FORMULÁRIO DE CADASTRO-->
+    <div id="cadastro">
+      <app-mensagem [mostrarMensagem]="mostrarMensagem" [tipoAlert]="tipoMensagem" [mensagem]="mensagem"></app-mensagem>
+      <form method="post" [formGroup]="verificarCadastroForm" (submit)="cadastrar()">
+        <h1>Cadastro</h1>
+
+        <p>
+          <label for="nome_cad">Seu nome</label>
+          <input id="nome_cad" name="nome_cad" formControlName="nome" required="required" type="text" placeholder="nome" />
+        </p>
+
+        <p>
+          <label for="email_cad">Seu e-mail</label>
+          <input id="email_cad" name="email_cad" formControlName="email" required="required" type="email" placeholder="contato@htmlecsspro.com"/>
+        </p>
+
+        <p>
+          <label for="senha_cad">Sua senha</label>
+          <input id="senha_cad" name="senha_cad" formControlName="senha" required="required" type="password" placeholder="ex. 1234"/>
+        </p>
+
+        <p>
+          <input type="submit" value="Cadastrar" [disabled]="!verificarCadastroForm.valid"/>
+        </p>
+
+        <p class="link">
+          Já tem conta?
+          <a href="#paralogin"> Ir para Login </a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+  <app-mensagem [mensagem]="mensagem" [tipoAlert]="tipoMensagem" [mostrarMensagem]="mostrarMensagem"></app-mensagem>
+  <div class="title">
+    <h1>Contatos cadastrados</h1>
+  </div>
+  <div class="btn-cadastro">
+    <button class="btn btn-success" routerLink="/cadastro">Cadastrar contato</button>
+    <button class="btn btn-danger" (click)="deslogar()">Sair do sistema</button>
+  </div>
+
+  <table class="table" *ngIf="contatos.length">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Email</th>
+        <th scope="col">opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contato of contatos, let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{contato.nome}}</td>
+        <td>{{contato.telefone}}</td>
+        <td>{{contato.email}}</td>
+        <td class="button">
+          <button class="btn btn-info" routerLink="/cadastro/{{contato.id}}">Editar</button>
+          <button class="btn btn-danger button-delete" (click)="excluir(contato.id, i)">Deletar</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  <div *ngIf="!contatos.length">
+    <h1>Não existe pessoas na sua lista de contatos</h1>
+  </div>
+</div>
