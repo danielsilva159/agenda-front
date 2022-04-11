@@ -71,7 +71,11 @@ export class CadastroComponent implements OnInit {
         this.viewMensagem('Pessoa cadastrada com sucesso', 'success')
         this.cadastro.reset();
 
-      })
+      },
+      erro =>{
+        this.viewMensagem(erro, 'erro')
+      }
+      )
   }
   }
 

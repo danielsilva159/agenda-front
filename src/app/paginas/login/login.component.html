@@ -5,6 +5,7 @@
   <div class="content">
     <!--FORMULÁRIO DE LOGIN-->
     <div id="login">
+      <app-mensagem [mostrarMensagem]="mostrarMensagem" [tipoAlert]="tipoMensagem" [mensagem]="mensagem"></app-mensagem>
       <form method="post" [formGroup]="verificarLoginForm">
         <h1>Login</h1>
         <p>

@@ -42,11 +42,10 @@ export class LoginComponent implements OnInit {
       senha: this.verificarLoginForm.controls['senha'].value
     }).subscribe((usuario) => {
       const {user} = usuario;
-
       this.route.navigate(['/listagem'], {queryParams:{id: user.id}})
     },
       (erro) => {
-        console.log('erro', erro);
+       this.viewMensagem(erro, 'erro');
 
       }
     )
